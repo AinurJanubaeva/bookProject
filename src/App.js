@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import { Route } from './components/router/Route';
 function App() {
+
+  const [text,setText]=useState(40)
+  const [state,setStae]=useState(false)
+console.log(text);
+
+  
+const clcikText = ()=>{
+  setText(65)
+  setStae(true)
+  
+}
+const clcikADD = ()=>{
+  setStae(false)
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>APP</h1>
+        <button onClick={clcikText}>click</button>
+        <button onClick={clcikADD}>ADD</button>
+         {text}
+        {state===true? <Route/>: " ....loading"}
     </div>
   );
 }
